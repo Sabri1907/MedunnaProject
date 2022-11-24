@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -14,6 +15,8 @@ import java.util.Random;
 
 public class MedunnaStepDefinition_Us006 {
     MedunnaPage_Us006 medunna006 = new MedunnaPage_Us006();
+    Faker faker=new Faker();
+
     @Given("Kullanici Medunna url'ine gider")
     public void kullaniciMedunnaUrlIneGider() {
         Driver.getDriver().get(ConfigReader.getProperty("medunnaUrl"));
@@ -62,20 +65,31 @@ public class MedunnaStepDefinition_Us006 {
         Driver.closeDriver();
     }
 
-    @And("Firstname metin kutusunda degisiklik yapar")
-    public void firstnameMetinKutusundaDegisiklikYapar() {
-        Random rnd=new Random();
+
+    @And("Firstname, lastname ve email metin kutularinda degisiklik yapar")
+    public void firstnameLastnameVeEmailMetinKutularindaDegisiklikYapar() {
+
         ReusableMethods.waitFor(2);
         medunna006.firstName.clear();
-        ReusableMethods.waitFor(2);
-        medunna006.firstName.sendKeys();
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(1);
+        medunna006.firstName.sendKeys(faker.name().firstName());
+        ReusableMethods.waitFor(1);
         medunna006.lastName.clear();
-        ReusableMethods.waitFor(2);
-        medunna006.lastName.sendKeys("Guvendi");
-        ReusableMethods.waitFor(2);
+        ReusableMethods.waitFor(1);
+        medunna006.lastName.sendKeys(faker.name().lastName());
+        ReusableMethods.waitFor(1);
         medunna006.email.clear();
-        ReusableMethods.waitFor(2);
-        medunna006.email.sendKeys("ykgg@gmail.com");
+        ReusableMethods.waitFor(1);
+        medunna006.email.sendKeys(faker.internet().emailAddress(),Keys.ENTER);
+
+
+    }
+
+    @Then("Firstname, lastname ve email metin kutularinda yapilan degisiklikleri dogrular")
+    public void firstnameLastnameVeEmailMetinKutularindaYapilanDegisiklikleriDogrular() {
+        //System.out.println(medunna006.savedYazisi.getText());
+        Assert.assertTrue(medunna006.savedYazisi.isDisplayed());
+
+
     }
 }

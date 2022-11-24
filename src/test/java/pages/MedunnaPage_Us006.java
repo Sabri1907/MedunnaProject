@@ -46,6 +46,11 @@ public class MedunnaPage_Us006 {
     @FindBy(xpath = "//*[@id='email']")
     public WebElement email;
 
+    @FindBy(xpath = "//*[@id='email']")
+    public WebElement save;
+
+    @FindBy(xpath = "//*[@class='Toastify__toast-body']")
+    public WebElement savedYazisi;
 
 
 }
