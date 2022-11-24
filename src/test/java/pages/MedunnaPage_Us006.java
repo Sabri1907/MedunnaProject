@@ -31,19 +31,19 @@ public class MedunnaPage_Us006 {
     @FindBy(xpath = "//*[@class='btn btn-primary']")
     public WebElement signInGiris;
 
-    @FindBy(xpath = "(//*[@class='d-flex align-items-center dropdown-toggle nav-link'])[3]")
+    @FindBy(xpath = "(//*[@class='d-flex align-items-center dropdown-toggle nav-link'])[4]")
     public WebElement kullaniciProfil;
 
-    @FindBy(xpath = "(//*[@class='dropdown-item'])[11]")
+    @FindBy(xpath = "(//*[@class='dropdown-item'])[8]")
     public WebElement settings;
 
-    @FindBy(xpath = "//*[@placeholder='Your first name']")
+    @FindBy(xpath = "//*[@id='firstName']")
     public WebElement firstName;
 
-    @FindBy(xpath = "//*[@placeholder='Your last name']")
+    @FindBy(xpath = "//*[@id='lastName']")
     public WebElement lastName;
 
-    @FindBy(xpath = "//*[@placeholder='Your email']")
+    @FindBy(xpath = "//*[@id='email']")
     public WebElement email;
 
 

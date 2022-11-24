@@ -10,6 +10,8 @@ import utilities.ConfigReader;
 import utilities.Driver;
 import utilities.ReusableMethods;
 
+import java.util.Random;
+
 public class MedunnaStepDefinition_Us006 {
     MedunnaPage_Us006 medunna006 = new MedunnaPage_Us006();
     @Given("Kullanici Medunna url'ine gider")
@@ -28,15 +30,16 @@ public class MedunnaStepDefinition_Us006 {
 
     @And("Kullanici bilgileriyle sign in olur")
     public void kullaniciBilgileriyleSignInOlur()  {
-        medunna006.userName.sendKeys("Team06");
+        medunna006.userName.sendKeys("Yusuf1833");
         ReusableMethods.waitFor(1);
-        medunna006.password.sendKeys("Team06.");
+        medunna006.password.sendKeys("Ykg123456");
         ReusableMethods.waitFor(1);
         medunna006.signInGiris.click();
     }
 
     @Then("Profil menüsünden Settings butonu tıklanır")
     public void profilMenüsündenSettingsButonuTıklanır() {
+        ReusableMethods.waitFor(1);
         medunna006.kullaniciProfil.click();
         ReusableMethods.waitFor(1);
         medunna006.settings.click();
@@ -44,14 +47,35 @@ public class MedunnaStepDefinition_Us006 {
     }
 
     @And("Kullanıcı bilgilerinin firstname, lastname, email giriş yaparken doldurulan kullanıcı bilgileri olduğunu dogrular")
-    public void kullanıcıBilgilerininGirişYaparkenDoldurulanKullanıcıBilgileriOlduğunuDogrular(String arg0) {
-        Assert.assertEquals("Team06",medunna006.firstName.getText());
-        Assert.assertEquals("Team06",medunna006.lastName.getText());
-        Assert.assertEquals("team06@gmail.com",medunna006.email.getText());
+    public void kullanıcıBilgilerininGirişYaparkenDoldurulanKullanıcıBilgileriOlduğunuDogrular() {
+
+        Assert.assertEquals("Yusuf",medunna006.firstName.getText());
+        ReusableMethods.waitFor(1);
+        Assert.assertEquals("Guven",medunna006.lastName.getText());
+        ReusableMethods.waitFor(1);
+        Assert.assertEquals("ykg@gmail.com",medunna006.email.getText());
+        ReusableMethods.waitFor(1);
     }
 
     @And("Sayfayi kapatir")
     public void sayfayiKapatir() {
         Driver.closeDriver();
+    }
+
+    @And("Firstname metin kutusunda degisiklik yapar")
+    public void firstnameMetinKutusundaDegisiklikYapar() {
+        Random rnd=new Random();
+        ReusableMethods.waitFor(2);
+        medunna006.firstName.clear();
+        ReusableMethods.waitFor(2);
+        medunna006.firstName.sendKeys();
+        ReusableMethods.waitFor(2);
+        medunna006.lastName.clear();
+        ReusableMethods.waitFor(2);
+        medunna006.lastName.sendKeys("Guvendi");
+        ReusableMethods.waitFor(2);
+        medunna006.email.clear();
+        ReusableMethods.waitFor(2);
+        medunna006.email.sendKeys("ykgg@gmail.com");
     }
 }
