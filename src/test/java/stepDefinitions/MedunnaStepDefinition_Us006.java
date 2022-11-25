@@ -14,6 +14,14 @@ import utilities.ReusableMethods;
 import java.util.Random;
 
 public class MedunnaStepDefinition_Us006 {
+    String firstNameValue1;
+    String lastNameValue1;
+    String emailValue1;
+
+    String firstNameValue2;
+    String lastNameValue2;
+    String emailValue2;
+
     MedunnaPage_Us006 medunna006 = new MedunnaPage_Us006();
     Faker faker=new Faker();
 
@@ -51,15 +59,19 @@ public class MedunnaStepDefinition_Us006 {
 
     @And("Kullanıcı bilgilerinin firstname, lastname, email giriş yaparken doldurulan kullanıcı bilgileri olduğunu dogrular")
     public void kullanıcıBilgilerininGirişYaparkenDoldurulanKullanıcıBilgileriOlduğunuDogrular() {
+        String firstNameValue= medunna006.firstName.getAttribute("value");
+        String lastNameValue= medunna006.lastName.getAttribute("value");
+        String emailValue= medunna006.email.getAttribute("value");
 
-        Assert.assertEquals("Yusuf",medunna006.firstName.getAttribute("firstName"));
-        /*ReusableMethods.waitFor(1);
-        Assert.assertEquals("Guven",medunna006.lastName.getText());
+
+        Assert.assertEquals("Yusuf",firstNameValue);
         ReusableMethods.waitFor(1);
-        Assert.assertEquals("ykg@gmail.com",medunna006.email.getText());
+        Assert.assertEquals("Guven",lastNameValue);
+        ReusableMethods.waitFor(1);
+        Assert.assertEquals("ykg@gmail.com",emailValue);
         ReusableMethods.waitFor(1);
 
-         */
+
     }
 
     @And("Sayfayi kapatir")
@@ -70,6 +82,9 @@ public class MedunnaStepDefinition_Us006 {
 
     @And("Firstname, lastname ve email metin kutularinda degisiklik yapar")
     public void firstnameLastnameVeEmailMetinKutularindaDegisiklikYapar() {
+        firstNameValue1= medunna006.firstName.getAttribute("value");
+        lastNameValue1= medunna006.lastName.getAttribute("value");
+        emailValue1= medunna006.email.getAttribute("value");
 
         ReusableMethods.waitFor(2);
         medunna006.firstName.clear();
@@ -83,14 +98,20 @@ public class MedunnaStepDefinition_Us006 {
         medunna006.email.clear();
         ReusableMethods.waitFor(1);
         medunna006.email.sendKeys(faker.internet().emailAddress(),Keys.ENTER);
+        ReusableMethods.waitFor(5);
+        firstNameValue2= medunna006.firstName.getAttribute("value");
+        lastNameValue2= medunna006.lastName.getAttribute("value");
+        emailValue2= medunna006.email.getAttribute("value");
 
 
     }
 
     @Then("Firstname, lastname ve email metin kutularinda yapilan degisiklikleri dogrular")
     public void firstnameLastnameVeEmailMetinKutularindaYapilanDegisiklikleriDogrular() {
-        //System.out.println(medunna006.savedYazisi.getText());
-        Assert.assertTrue(medunna006.savedYazisi.isDisplayed());
+        Assert.assertNotEquals(firstNameValue1,firstNameValue2);
+        Assert.assertNotEquals(lastNameValue1,lastNameValue2);
+        Assert.assertNotEquals(emailValue1,emailValue2);
+
 
 
     }
