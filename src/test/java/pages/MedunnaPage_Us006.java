@@ -52,5 +52,7 @@ public class MedunnaPage_Us006 {
     @FindBy(xpath = "//*[@class='Toastify__toast-body']")
     public WebElement savedYazisi;
 
+    //@FindBy(xpath = "//*[@class='Toastify__toast-body']")
+    //public WebElement savedYazisi;
 
 }
