@@ -37,6 +37,10 @@ public class MedunnaPage_Us006 {
     @FindBy(xpath = "(//*[@class='dropdown-item'])[8]")
     public WebElement settings;
 
+    @FindBy(xpath = "(//*[@class='dropdown-item'])[7]")
+    public WebElement settings2;
+
+
     @FindBy(xpath = "//*[@id='firstName']")
     public WebElement firstName;
 

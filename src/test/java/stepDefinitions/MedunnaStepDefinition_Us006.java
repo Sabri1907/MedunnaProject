@@ -76,13 +76,9 @@ public class MedunnaStepDefinition_Us006 {
         medunna006.makeAnAppointments.click();
         ReusableMethods.waitFor(1);
 
-
         appointmentFirstNameValue= medunna006.appointmentFirstName.getAttribute("value");
         appointmentLastNameValue= medunna006.appointmentLastName.getAttribute("value");
         appointmentEmailValue= medunna006.appointmentEmail.getAttribute("value");
-
-
-
 
         Assert.assertEquals(appointmentFirstNameValue,firstNameValue);
         ReusableMethods.waitFor(1);
@@ -96,12 +92,27 @@ public class MedunnaStepDefinition_Us006 {
 
     @And("Sayfayi kapatir")
     public void sayfayiKapatir() {
+        ReusableMethods.waitFor(2);
         Driver.closeDriver();
     }
 
 
     @And("Firstname, lastname ve email metin kutularinda degisiklik yapar")
     public void firstnameLastnameVeEmailMetinKutularindaDegisiklikYapar() {
+
+        medunna006.myPagesPatient.click();
+        ReusableMethods.waitFor(1);
+        medunna006.makeAnAppointments.click();
+        ReusableMethods.waitFor(1);
+        appointmentFirstNameValue= medunna006.appointmentFirstName.getAttribute("value");
+        appointmentLastNameValue= medunna006.appointmentLastName.getAttribute("value");
+        appointmentEmailValue= medunna006.appointmentEmail.getAttribute("value");
+
+        ReusableMethods.waitFor(1);
+        medunna006.kullaniciProfil.click();
+        ReusableMethods.waitFor(1);
+        medunna006.settings2.click();
+        ReusableMethods.waitFor(2);
 
         firstNameValue= medunna006.firstName.getAttribute("value");
         lastNameValue= medunna006.lastName.getAttribute("value");
@@ -124,6 +135,22 @@ public class MedunnaStepDefinition_Us006 {
         firstNameValue2= medunna006.firstName.getAttribute("value");
         lastNameValue2= medunna006.lastName.getAttribute("value");
         emailValue2= medunna006.email.getAttribute("value");
+
+        ReusableMethods.waitFor(2);
+        medunna006.firstName.clear();
+        ReusableMethods.waitFor(1);
+        medunna006.firstName.sendKeys(appointmentFirstNameValue);
+        ReusableMethods.waitFor(1);
+        medunna006.lastName.clear();
+        ReusableMethods.waitFor(1);
+        medunna006.lastName.sendKeys(appointmentLastNameValue);
+        ReusableMethods.waitFor(1);
+        medunna006.email.clear();
+        ReusableMethods.waitFor(1);
+        medunna006.email.sendKeys(appointmentEmailValue,Keys.ENTER);
+        ReusableMethods.waitFor(5);
+
+
 
 
     }

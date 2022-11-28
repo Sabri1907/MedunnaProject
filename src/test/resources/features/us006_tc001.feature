@@ -4,5 +4,4 @@ Feature: US006 Kullanıcı bilgisi sekmesi (Setting) ana Sayfada düzenlenebilir
     Then Kullanici Sign In sayfasına gider
     And Kullanici bilgileriyle sign in olur
     Then Profil menüsünden Settings butonu tıklanır
-    And Kullanıcı bilgilerinin firstname, lastname, email giriş yaparken doldurulan kullanıcı bilgileri olduğunu dogrular
-    And Sayfayi kapatir
+    And Kullanıcı bilgilerinin firstname, lastname, email giriş yaparken doldurulan kullanıcı bilgileri olduğunu dogrularAnd Sayfayi kapatir
