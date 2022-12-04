@@ -40,6 +40,10 @@ public class MedunnaPage_Us006 {
     @FindBy(xpath = "(//*[@class='dropdown-item'])[7]")
     public WebElement settings2;
 
+    @FindBy(xpath = "//*[@class='Toastify__toast-body']")
+    public WebElement saveYazisi;
+
+
 
     @FindBy(xpath = "//*[@id='firstName']")
     public WebElement firstName;
@@ -70,6 +74,11 @@ public class MedunnaPage_Us006 {
 
     @FindBy(xpath = "//*[@placeholder='Your email']")
     public WebElement appointmentEmail;
+
+
+    //***************************** => US_017 <= ***************************************************
+    @FindBy(xpath = "//*[@placeholder='Your email']")
+    public WebElement appointmentEmaill;
 
 
 }

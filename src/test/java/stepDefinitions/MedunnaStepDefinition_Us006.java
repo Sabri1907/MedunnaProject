@@ -22,10 +22,6 @@ public class MedunnaStepDefinition_Us006 {
     String lastNameValue;
     String emailValue;
 
-    String firstNameValue2;
-    String lastNameValue2;
-    String emailValue2;
-
     MedunnaPage_Us006 medunna006 = new MedunnaPage_Us006();
     Faker faker=new Faker();
 
@@ -114,10 +110,6 @@ public class MedunnaStepDefinition_Us006 {
         medunna006.settings2.click();
         ReusableMethods.waitFor(2);
 
-        firstNameValue= medunna006.firstName.getAttribute("value");
-        lastNameValue= medunna006.lastName.getAttribute("value");
-        emailValue= medunna006.email.getAttribute("value");
-
         ReusableMethods.waitFor(2);
         medunna006.firstName.clear();
         ReusableMethods.waitFor(1);
@@ -132,9 +124,12 @@ public class MedunnaStepDefinition_Us006 {
         medunna006.email.sendKeys(faker.internet().emailAddress(),Keys.ENTER);
         ReusableMethods.waitFor(5);
 
-        firstNameValue2= medunna006.firstName.getAttribute("value");
-        lastNameValue2= medunna006.lastName.getAttribute("value");
-        emailValue2= medunna006.email.getAttribute("value");
+    }
+
+    @Then("Firstname, lastname ve email metin kutularinda yapilan degisiklikleri dogrular")
+    public void firstnameLastnameVeEmailMetinKutularindaYapilanDegisiklikleriDogrular() {
+
+        Assert.assertTrue(medunna006.saveYazisi.isDisplayed());
 
         ReusableMethods.waitFor(2);
         medunna006.firstName.clear();
@@ -149,18 +144,6 @@ public class MedunnaStepDefinition_Us006 {
         ReusableMethods.waitFor(1);
         medunna006.email.sendKeys(appointmentEmailValue,Keys.ENTER);
         ReusableMethods.waitFor(5);
-
-
-
-
-    }
-
-    @Then("Firstname, lastname ve email metin kutularinda yapilan degisiklikleri dogrular")
-    public void firstnameLastnameVeEmailMetinKutularindaYapilanDegisiklikleriDogrular() {
-        Assert.assertNotEquals(firstNameValue,firstNameValue2);
-        Assert.assertNotEquals(lastNameValue,lastNameValue2);
-        Assert.assertNotEquals(emailValue,emailValue2);
-
 
 
     }
