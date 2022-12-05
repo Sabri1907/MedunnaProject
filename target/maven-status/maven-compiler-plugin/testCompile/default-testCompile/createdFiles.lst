@@ -3,4 +3,5 @@ utilities\ReusableMethods$1.class
 utilities\Driver.class
 pages\MedunnaPage_Us006.class
 stepDefinitions\MedunnaStepDefinition_Us006.class
+stepDefinitions\api_steps\RoomOlusturmaSteps.class
 utilities\ReusableMethods.class
