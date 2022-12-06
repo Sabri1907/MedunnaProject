@@ -77,8 +77,12 @@ public class MedunnaPage_Us006 {
 
 
     //***************************** => US_017 <= ***************************************************
+
     @FindBy(xpath = "//*[@placeholder='Your email']")
     public WebElement appointmentEmaill;
+
+    @FindBy(xpath = "//*[@placeholder='Your email']")
+    public WebElement appointmentEmailll;
 
 
 }
