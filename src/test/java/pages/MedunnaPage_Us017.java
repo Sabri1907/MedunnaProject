@@ -61,6 +61,8 @@ public class MedunnaPage_Us017 {
     @FindBy(xpath = "//*[@id='c-test-item-createdDate']")
     public WebElement createdDate;
 
+    @FindBy(xpath = "//*[@class='btn btn-primary']")
+    public WebElement saveButton;
 
 
 
