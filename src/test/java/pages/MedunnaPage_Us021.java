@@ -5,9 +5,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
-public class MedunnaPage_Us017 {
+public class MedunnaPage_Us021 {
 
-    public MedunnaPage_Us017() { // Public Contructor olusturmamiz gerekir
+    public MedunnaPage_Us021() { // Public Contructor olusturmamiz gerekir
         PageFactory.initElements(Driver.getDriver(), this);
         /*
         => Baska class'lardan WebElementlere ulasmamiz icin PageFactory class'indan initElements()
@@ -31,23 +31,23 @@ public class MedunnaPage_Us017 {
     @FindBy(xpath = "//*[@class='btn btn-primary']")
     public WebElement signInGiris;
 
-    @FindBy(xpath = "//*[@id='entity-menu']")
-    public WebElement itemsTitles;
+    @FindBy(xpath = "(//*[@class='d-flex align-items-center dropdown-toggle nav-link'])[1]")
+    public WebElement myPages;
 
-    @FindBy(xpath = "(//*[@class='dropdown-item'])[5]")
-    public WebElement testItem;
+    @FindBy(xpath = "(//*[@class='dropdown-item'])[1]")
+    public WebElement searchPatient;
 
-    @FindBy(xpath = "//*[@id='jh-create-entity']")
-    public WebElement createNewTestItem;
+    @FindBy(xpath = "//*[@class='form-control']")
+    public WebElement ssnMetinKutusu;
 
-    @FindBy(xpath = "//*[@id='hospitalmsappfrontendApp.cTestItem.home.createOrEditLabel']")
-    public WebElement createOrEditTestItem;
+    @FindBy(xpath = "(//*[@class='d-none d-md-inline'])[3]")
+    public WebElement showAppointment;
 
-    @FindBy(xpath = "//*[@id='c-test-item-name']")
-    public WebElement name;
+    @FindBy(xpath = "//*[@class='btn btn-warning btn-sm']")
+    public WebElement editButton;
 
-    @FindBy(xpath = "//*[@id='c-test-item-description']")
-    public WebElement description;
+    @FindBy(xpath = "//h2")
+    public WebElement createOrEditAnAppointmentBasligi;
 
     @FindBy(xpath = "//*[@id='c-test-item-price']")
     public WebElement price;

@@ -1,10 +1,12 @@
 pages\MedunnaPage_Us017.class
 utilities\ReusableMethods$1.class
+stepDefinitions\MedunnaStepDefinition_Us021.class
 utilities\Driver.class
 stepDefinitions\MedunnaStepDefinition_Us006.class
 stepDefinitions\MedunnaStepDefinition_Us017.class
 utilities\ConfigReader.class
 base_url_setup\MedunnaBaseUrl.class
+pages\MedunnaPage_Us021.class
 pages\MedunnaPage_Us006.class
 stepDefinitions\api_steps\RoomOlusturmaSteps.class
 utilities\ReusableMethods.class

@@ -1,6 +1,5 @@
 Feature: US017 Test items(öğe) Oluştur / Güncelle / Sil
-  Scenario: TC02 Test öğeleri oluştururken/güncellerken "Name, Description, price
-  Default min value, Default max value and created date as MM/DAY/YEAR" öğeleri olmalıdır.
+  Scenario: TC03 Admin test öğelerini görüntüleyebilir.
     Given SG Admin Medunna url'ine gider
     Then SG Admin Sign In sayfasına gider
     And  SG Admin Kullanıcı bilgileriyle sign in olunur

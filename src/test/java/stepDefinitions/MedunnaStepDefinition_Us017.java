@@ -123,4 +123,35 @@ public class MedunnaStepDefinition_Us017 {
 
 
     }
+
+    @Then("SG Admin açılan sayfadan test öğelerini siler")
+    public void sgAdminAçılanSayfadanTestÖğeleriniSiler() {
+        ReusableMethods.waitFor(2);
+        medunna017.createNewTestItem.click();
+        ReusableMethods.waitFor(2);
+        medunna017.name.sendKeys("Team06 Test Item");
+        ReusableMethods.waitFor(2);
+
+        medunna017.description.sendKeys("US017 Deneme");
+        ReusableMethods.waitFor(2);
+
+        medunna017.price.sendKeys("200");
+        ReusableMethods.waitFor(2);
+
+        medunna017.defaultMinValue.sendKeys("100",Keys.ARROW_DOWN,Keys.ARROW_DOWN,Keys.ARROW_DOWN);
+        ReusableMethods.waitFor(2);
+
+        medunna017.defaultMaxValue.sendKeys("1000",Keys.ENTER);
+        ReusableMethods.waitFor(6);
+
+        medunna017.idButton.click();
+        ReusableMethods.waitFor(2);
+
+        medunna017.deleteButton.click();
+        ReusableMethods.waitFor(2);
+
+        medunna017.deleteUyariButton.click();
+
+        Assert.assertTrue(medunna017.testItemDeletedYazisi.isDisplayed());
+    }
 }
