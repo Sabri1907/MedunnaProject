@@ -83,7 +83,7 @@ public class MedunnaStepDefinition_Us017 {
 
     @And("SG Admin Create or edit a Test Item ekranınında Name, Description, price Default min value, Default max value and created date as Gun Ay Yil öğelerinin olduğunu görür.")
     public void sgAdminCreateOrEditATestItemEkranınındaNameDescriptionPriceDefaultMinValueDefaultMaxValueAndCreatedDateAsMMDAYYEARÖğelerininOlduğunuGörür() {
-        medunna017.name.sendKeys("Team06 Appointment");
+        medunna017.name.sendKeys("Team06 Test Item");
         ReusableMethods.waitFor(2);
         Assert.assertTrue(medunna017.name.isEnabled());
 
@@ -96,7 +96,7 @@ public class MedunnaStepDefinition_Us017 {
         ReusableMethods.waitFor(2);
         Assert.assertTrue(medunna017.price.isEnabled());
 
-        medunna017.defaultMinValue.sendKeys("100");
+        medunna017.defaultMinValue.sendKeys("100",Keys.ARROW_DOWN,Keys.ARROW_DOWN);
         ReusableMethods.waitFor(2);
         Assert.assertTrue(medunna017.defaultMinValue.isEnabled());
 
@@ -108,14 +108,19 @@ public class MedunnaStepDefinition_Us017 {
         Assert.assertEquals(tarihNow,createdNow);
 
         Assert.assertTrue(medunna017.defaultMaxValue.isEnabled());
-        medunna017.defaultMaxValue.sendKeys("1000",Keys.ARROW_DOWN,Keys.ENTER);
+        medunna017.defaultMaxValue.sendKeys("1000",Keys.ENTER);
         ReusableMethods.waitFor(3);
 
 
+    }
 
+    @Then("SG Admin açılan sayfadan test öğelerini görüntüler.")
+    public void sgAdminAçılanSayfadanTestÖğeleriniGörüntüler() {
+        ReusableMethods.waitFor(2);
+        medunna017.viewButton.click();
+        ReusableMethods.waitFor(2);
+        Assert.assertTrue(medunna017.testItemBasligi.isDisplayed());
 
-
-        //Assert.assertTrue(medunna017.createdDate.isEnabled());
 
     }
 }

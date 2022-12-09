@@ -6,6 +6,5 @@ Feature: US017 Test items(öğe) Oluştur / Güncelle / Sil
     And  SG Admin Kullanıcı bilgileriyle sign in olunur
     Then SG Admin Items&Titles sekmesini tıklar
     And SG Admin açılan menüden Test Item butonunu tıklar
-    Then SG Admin açılan sayfadan Create a new Test Item butonunu tıklar
-    And  SG Admin Create or edit a Test Item ekranınında Name, Description, price Default min value, Default max value and created date as Gun Ay Yil öğelerinin olduğunu görür.
+    Then SG Admin açılan sayfadan test öğelerini görüntüler.
     And SG Sayfayi kapatir

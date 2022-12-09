@@ -64,6 +64,11 @@ public class MedunnaPage_Us017 {
     @FindBy(xpath = "//*[@class='btn btn-primary']")
     public WebElement saveButton;
 
+    @FindBy(xpath = "(//*[@class='btn btn-info btn-sm'])[1]")
+    public WebElement viewButton;
+
+    @FindBy(xpath = "//h2")
+    public WebElement testItemBasligi;
 
 
 
