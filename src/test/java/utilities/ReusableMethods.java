@@ -17,7 +17,7 @@ import java.util.Date;
 import java.util.List;
 
 public class ReusableMethods {
-    MedunnaPage_Us017 medunnaRM=new MedunnaPage_Us017();
+    MedunnaPage_Us017 medunnaRM = new MedunnaPage_Us017();
 
     //========ScreenShot(Sayfanın resmini alma)=====//
     public static String getScreenshot(String name) throws IOException {
@@ -33,6 +33,7 @@ public class ReusableMethods {
         FileUtils.copyFile(source, finalDestination);
         return target;
     }
+
     //========ScreenShot Web Element(Bir webelementin resmini alma)=====//
     public static String getScreenshotWebElement(String name, WebElement element) throws IOException {
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
@@ -43,7 +44,7 @@ public class ReusableMethods {
         File finalDestination = new File(wElementSS);
         // save the screenshot to the path given
         FileUtils.copyFile(source, finalDestination);
-        return  wElementSS;
+        return wElementSS;
     }
 
     //========Switching Window(Pencereler arası geçiş)=====//
@@ -145,8 +146,16 @@ public class ReusableMethods {
         }
     }
 
-    public static void testItemOlustur(){
+    public static void jsScrollClick(WebElement webElement) {  //kaydir ve tikla
 
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        try {
+            webElement.click();
 
+        } catch (Exception e) {
+
+            js.executeScript("arguments[0].scrollIntoView(true);", webElement);
+            js.executeScript("arguments[0].click()", webElement);
+        }
     }
 }

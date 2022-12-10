@@ -11,7 +11,7 @@ import utilities.Driver;
 import utilities.ReusableMethods;
 
 public class MedunnaStepDefinition_Us021 {
-    MedunnaPage_Us021 medunna021=new MedunnaPage_Us021();
+    MedunnaPage_Us021 medunna021 = new MedunnaPage_Us021();
 
     @Given("SG Staff Medunna url'ine gider")
     public void sgStaffMedunnaUrlIneGider() {
@@ -64,7 +64,7 @@ public class MedunnaStepDefinition_Us021 {
 
     @Then("SG Staff açılan sayfadan Edit butonunu tıklar")
     public void sgStaffAçılanSayfadanEditButonunuTıklar() {
-        ReusableMethods.waitFor(4);
+        ReusableMethods.waitFor(2);
         medunna021.editButton.click();
     }
 
@@ -72,5 +72,83 @@ public class MedunnaStepDefinition_Us021 {
     public void sgStaffCreateOrEditAnAppointmentEkranınınAçıldığınıGörür() {
         ReusableMethods.waitFor(4);
         Assert.assertTrue(medunna021.createOrEditAnAppointmentBasligi.isDisplayed());
+    }
+
+    @And("SG  Staff açılan sayfadan Status kısmını UNAPPROVED, PENDING veya CANCELLED yapabilir ancak COMPLETED yapamaz")
+    public void sgStaffAçılanSayfadanStatusKısmınıUNAPPROVEDPENDINGVeyaCANCELLEDYapabilirAncakCOMPLETEDYapamaz() {
+
+        ReusableMethods.jsScrollClick(medunna021.statusBox);
+        ReusableMethods.waitFor(2);
+        medunna021.unapproved.click();
+        ReusableMethods.waitFor(2);
+        medunna021.statusBox.click();
+        ReusableMethods.waitFor(2);
+        medunna021.pending.click();
+        ReusableMethods.waitFor(2);
+        medunna021.statusBox.click();
+        ReusableMethods.waitFor(2);
+        medunna021.cancelled.click();
+        ReusableMethods.waitFor(2);
+        medunna021.statusBox.click();
+        ReusableMethods.waitFor(2);
+        medunna021.completed.click();
+
+        Assert.assertTrue(medunna021.unapproved.isEnabled());
+        Assert.assertTrue(medunna021.pending.isEnabled());
+        Assert.assertTrue(medunna021.cancelled.isEnabled());
+        Assert.assertFalse(medunna021.completed.isEnabled());
+
+
+    }
+
+    @And("SG  Staff açılan sayfadan Anamnesis \\(Hastalık Geçmişi), Treatment \\( Tedavi) veya Diagnosis\\(Teşhis) kısımlarına data giremez")
+    public void sgStaffAçılanSayfadanAnamnesisHastalıkGeçmişiTreatmentTedaviVeyaDiagnosisTeşhisKısımlarınaDataGiremez() {
+        medunna021.anamnesis.clear();
+        ReusableMethods.waitFor(2);
+        medunna021.anamnesis.sendKeys("Data Girişi Yapıldı");
+        ReusableMethods.waitFor(2);
+        medunna021.treatment.clear();
+        ReusableMethods.waitFor(2);
+        medunna021.treatment.sendKeys("Data Girişi Yapıldı");
+        ReusableMethods.waitFor(2);
+        medunna021.diagnosis.clear();
+        ReusableMethods.waitFor(2);
+        medunna021.diagnosis.sendKeys("Data Girişi Yapıldı");
+
+        String input="Data Girişi Yapıldı";
+        String anamnesisValue=medunna021.anamnesis.getText();
+        System.out.println("anamnesisValue = " + anamnesisValue);
+        String treatmentValue=medunna021.treatment.getText();
+        System.out.println("treatmentValue = " + treatmentValue);
+        String diagnosisValue=medunna021.diagnosis.getText();
+        System.out.println("diagnosisValue = " + diagnosisValue);
+
+        /*
+        Assert.assertNotEquals(input,anamnesisValue);
+        Assert.assertNotEquals(input,treatmentValue);
+        Assert.assertNotEquals(input,diagnosisValue);
+        */
+        Assert.assertEquals(input,anamnesisValue);
+        Assert.assertEquals(input,treatmentValue);
+        Assert.assertEquals(input,diagnosisValue);
+
+
+
+
+
+
+
+    }
+
+    @And("SG Staff açılan sayfada  Physician kısmından ilgili doktoru secip Save butonuna tıklar")
+    public void sgStaffAçılanSayfadaPhysicianKısmındanIlgiliDoktoruSecipSaveButonunaTıklar() {
+        medunna021.physician.click();
+        ReusableMethods.waitFor(2);
+        medunna021.physician.sendKeys(Keys.ARROW_DOWN,Keys.ENTER);
+        ReusableMethods.waitFor(2);
+        medunna021.appointmentSave.click();
+
+        Assert.assertTrue(medunna021.savedYazisi.isDisplayed());
+
     }
 }

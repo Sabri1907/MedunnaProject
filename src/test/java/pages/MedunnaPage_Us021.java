@@ -49,37 +49,37 @@ public class MedunnaPage_Us021 {
     @FindBy(xpath = "//h2")
     public WebElement createOrEditAnAppointmentBasligi;
 
-    @FindBy(xpath = "//*[@id='c-test-item-price']")
-    public WebElement price;
+    @FindBy(xpath = "//*[@id='appointment-status']")
+    public WebElement statusBox;
 
-    @FindBy(xpath = "//*[@id='c-test-item-defaultValMin']")
-    public WebElement defaultMinValue;
+    @FindBy(xpath = "//*[@value='UNAPPROVED']")
+    public WebElement unapproved;
 
-    @FindBy(xpath = "//*[@id='c-test-item-defaultValMax']")
-    public WebElement defaultMaxValue;
+    @FindBy(xpath = "//*[@value='PENDING']")
+    public WebElement pending;
 
-    @FindBy(xpath = "//*[@id='c-test-item-createdDate']")
-    public WebElement createdDate;
+    @FindBy(xpath = "//*[@value='CANCELLED']")
+    public WebElement cancelled;
 
-    @FindBy(xpath = "//*[@class='btn btn-primary']")
-    public WebElement saveButton;
+    @FindBy(xpath = "//*[text()='COMPLETED']")
+    public WebElement completed;
 
-    @FindBy(xpath = "(//*[@class='btn btn-info btn-sm'])[1]")
-    public WebElement viewButton;
+    @FindBy(xpath = "//*[@id='appointment-anamnesis']")
+    public WebElement anamnesis;
 
-    @FindBy(xpath = "//h2")
-    public WebElement testItemBasligi;
+    @FindBy(xpath = "//*[@id='appointment-treatment']")
+    public WebElement treatment;
 
-    @FindBy(xpath = "(//*[@class='hand'])[1]")
-    public WebElement idButton;
+    @FindBy(xpath = "//*[@id='appointment-diagnosis']")
+    public WebElement diagnosis;
 
-    @FindBy(xpath = "(//*[@class='btn btn-danger btn-sm'])[1]")
-    public WebElement deleteButton;
+    @FindBy(xpath = "//*[@id='appointment-physician']")
+    public WebElement physician;
 
-    @FindBy(xpath = "//*[@id='jhi-confirm-delete-cTestItem']")
-    public WebElement deleteUyariButton;
+    @FindBy(xpath = "//*[@id='save-entity']")
+    public WebElement appointmentSave;
 
     @FindBy(xpath = "//*[@class='Toastify__toast-body']")
-    public WebElement testItemDeletedYazisi;
+    public WebElement savedYazisi;
 
 }
