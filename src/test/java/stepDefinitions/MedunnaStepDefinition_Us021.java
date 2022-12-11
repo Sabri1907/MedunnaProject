@@ -115,12 +115,12 @@ public class MedunnaStepDefinition_Us021 {
         ReusableMethods.waitFor(2);
         medunna021.diagnosis.sendKeys("Data Girişi Yapıldı");
 
-        String input="Data Girişi Yapıldı";
-        String anamnesisValue=medunna021.anamnesis.getText();
+        String input = "Data Girişi Yapıldı";
+        String anamnesisValue = medunna021.anamnesis.getText();
         System.out.println("anamnesisValue = " + anamnesisValue);
-        String treatmentValue=medunna021.treatment.getText();
+        String treatmentValue = medunna021.treatment.getText();
         System.out.println("treatmentValue = " + treatmentValue);
-        String diagnosisValue=medunna021.diagnosis.getText();
+        String diagnosisValue = medunna021.diagnosis.getText();
         System.out.println("diagnosisValue = " + diagnosisValue);
 
         /*
@@ -128,27 +128,31 @@ public class MedunnaStepDefinition_Us021 {
         Assert.assertNotEquals(input,treatmentValue);
         Assert.assertNotEquals(input,diagnosisValue);
         */
-        Assert.assertEquals(input,anamnesisValue);
-        Assert.assertEquals(input,treatmentValue);
-        Assert.assertEquals(input,diagnosisValue);
-
-
-
-
-
+        Assert.assertEquals(input, anamnesisValue);
+        Assert.assertEquals(input, treatmentValue);
+        Assert.assertEquals(input, diagnosisValue);
 
 
     }
 
     @And("SG Staff açılan sayfada  Physician kısmından ilgili doktoru secip Save butonuna tıklar")
     public void sgStaffAçılanSayfadaPhysicianKısmındanIlgiliDoktoruSecipSaveButonunaTıklar() {
-        medunna021.physician.click();
-        ReusableMethods.waitFor(2);
-        medunna021.physician.sendKeys(Keys.ARROW_DOWN,Keys.ENTER);
-        ReusableMethods.waitFor(2);
+        ReusableMethods.jsScrollClick(medunna021.physician);
+        ReusableMethods.waitFor(3);
+       medunna021.selectedPhysician.click();
+        ReusableMethods.waitFor(3);
         medunna021.appointmentSave.click();
 
         Assert.assertTrue(medunna021.savedYazisi.isDisplayed());
 
     }
+
+    @Given("SG Staff Medunna url'ine gider ve appointment olusturur")
+    public void sgStaffMedunnaUrlIneGiderVeAppointmentOlusturur() {
+
+        Driver.getDriver().get(ConfigReader.getProperty("medunnaUrl"));
+        ReusableMethods.waitFor(2);
+        ReusableMethods.appointmentOlustur();
+    }
 }
+

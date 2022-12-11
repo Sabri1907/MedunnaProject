@@ -1,5 +1,6 @@
 package utilities;
 
+import com.github.javafaker.Faker;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -7,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.MedunnaPage_Us017;
+import pages.MedunnaPage_Us021;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,7 +19,7 @@ import java.util.Date;
 import java.util.List;
 
 public class ReusableMethods {
-    MedunnaPage_Us017 medunnaRM = new MedunnaPage_Us017();
+
 
     //========ScreenShot(Sayfanın resmini alma)=====//
     public static String getScreenshot(String name) throws IOException {
@@ -157,5 +159,25 @@ public class ReusableMethods {
             js.executeScript("arguments[0].scrollIntoView(true);", webElement);
             js.executeScript("arguments[0].click()", webElement);
         }
+    }
+
+    public static void appointmentOlustur() {
+        MedunnaPage_Us021 medun = new MedunnaPage_Us021();
+        Actions action = new Actions(Driver.getDriver());
+        medun.makeAnAppointment.click();
+        ReusableMethods.waitFor(2);
+        ReusableMethods.jsScrollClick(medun.firstName);
+        medun.firstName.sendKeys("Ali");
+        ReusableMethods.waitFor(2);
+        medun.lastName.sendKeys("Guven");
+        ReusableMethods.waitFor(2);
+        medun.ssn.sendKeys("001-18-1818");
+        ReusableMethods.waitFor(2);
+        medun.email.sendKeys("ykg1@gmail.com");
+        ReusableMethods.waitFor(2);
+        medun.phone.sendKeys(("5070000000"),Keys.ENTER);
+        ReusableMethods.waitFor(5);
+
+
     }
 }

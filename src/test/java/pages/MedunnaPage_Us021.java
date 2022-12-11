@@ -82,4 +82,24 @@ public class MedunnaPage_Us021 {
     @FindBy(xpath = "//*[@class='Toastify__toast-body']")
     public WebElement savedYazisi;
 
+    @FindBy(xpath = "//*[@class='appointment-btn scrollto']")
+    public WebElement makeAnAppointment;
+
+    @FindBy(xpath = "//*[@id='firstName']")
+    public WebElement firstName;
+
+    @FindBy(xpath = "//*[@id='lastName']")
+    public WebElement lastName;
+
+    @FindBy(xpath = "//*[@id='ssn']")
+    public WebElement ssn;
+
+    @FindBy(xpath = "//*[@id='email']")
+    public WebElement email;
+
+    @FindBy(xpath = "//*[@id='phone']")
+    public WebElement phone;
+
+    @FindBy(xpath = "(//div//option)[9]")
+    public WebElement selectedPhysician;
 }
