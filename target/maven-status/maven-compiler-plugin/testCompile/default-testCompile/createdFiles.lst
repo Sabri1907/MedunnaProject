@@ -2,6 +2,7 @@ pojos\US017_Tc05_Pojo.class
 pages\MedunnaPage_Us017.class
 utilities\ReusableMethods$1.class
 stepDefinitions\MedunnaStepDefinition_Us006.class
+pojos\US017_Tc06_Pojo.class
 stepDefinitions\MedunnaStepDefinition_Us017.class
 utilities\ReusableMethods.class
 stepDefinitions\MedunnaStepDefinition_Us021.class
