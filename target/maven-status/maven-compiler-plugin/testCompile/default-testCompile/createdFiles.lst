@@ -4,6 +4,7 @@ utilities\ReusableMethods$1.class
 stepDefinitions\MedunnaStepDefinition_Us006.class
 pojos\US017_Tc06_Pojo.class
 stepDefinitions\MedunnaStepDefinition_Us017.class
+stepDefinitions\US017DBStepDefinition.class
 utilities\ReusableMethods.class
 stepDefinitions\MedunnaStepDefinition_Us021.class
 utilities\Driver.class
@@ -11,7 +12,6 @@ utilities\Authentication.class
 stepDefinitions\api_steps\MedunnaStepDefinition_US017API.class
 utilities\ObjectMapperUtils.class
 utilities\ConfigReader.class
-base_url_setup\MedunnaBaseUrl.class
 pages\MedunnaPage_Us021.class
 pages\MedunnaPage_Us006.class
 stepDefinitions\api_steps\RoomOlusturmaSteps.class

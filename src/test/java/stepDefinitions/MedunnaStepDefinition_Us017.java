@@ -4,6 +4,7 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import pages.MedunnaPage_Us017;
@@ -14,7 +15,7 @@ import utilities.ReusableMethods;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class MedunnaStepDefinition_Us017 {
     MedunnaPage_Us017 medunna017=new MedunnaPage_Us017();
     Faker faker =new Faker();
