@@ -113,6 +113,6 @@ public class MedunnaPage_Us021 {
     public WebElement selectedPhysiciannn3;
 
     @FindBy(xpath = "(//div//option)[9]")
-    public WebElement selectedPhysiciann3;
+    public WebElement selectedPhysicann3;
 
 }
